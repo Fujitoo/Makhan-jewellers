@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { BUSINESS_INFO } from "@/lib/constants";
+import { BUSINESS_INFO, SOCIAL_LINKS } from "@/lib/constants";
 import { navLinks } from "@/data/mockData";
 
 export const Footer = () => {
@@ -15,12 +15,12 @@ export const Footer = () => {
               {BUSINESS_INFO.name}
             </h3>
             <p className="text-gray-300 text-sm mb-4">
-              Crafting exquisite jewellery since {BUSINESS_INFO.established}. 
+              Crafting exquisite jewellery since {BUSINESS_INFO.established}.
               Trusted for purity, quality, and timeless designs.
             </p>
             <div className="flex space-x-4">
               <a
-                href={BUSINESS_INFO.instagram}
+                href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gold-600 transition-colors"
@@ -29,7 +29,7 @@ export const Footer = () => {
                 <Globe className="h-5 w-5" />
               </a>
               <a
-                href={BUSINESS_INFO.facebook}
+                href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-gold-600 transition-colors"
@@ -67,7 +67,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-gold-600 flex-shrink-0" />
-                <a 
+                <a
                   href={`tel:${BUSINESS_INFO.phone}`}
                   className="text-gray-300 hover:text-gold-600 transition-colors text-sm"
                 >
@@ -76,7 +76,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-gold-600 flex-shrink-0" />
-                <a 
+                <a
                   href={`mailto:${BUSINESS_INFO.email}`}
                   className="text-gray-300 hover:text-gold-600 transition-colors text-sm"
                 >
@@ -85,7 +85,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-gold-600 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">{BUSINESS_INFO.openHours}</span>
+                <span className="text-gray-300 text-sm">{BUSINESS_INFO.workingHours}</span>
               </li>
             </ul>
           </div>

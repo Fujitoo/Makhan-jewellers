@@ -46,20 +46,32 @@ export const Collection = () => {
     // Sorting
     switch (sortBy) {
       case "price-low":
-        result.sort((a, b) => a.price - b.price);
+        result.sort((a, b) => {
+          const priceA = parseFloat(a.price.replace(/[₹,]/g, "")) || 0;
+          const priceB = parseFloat(b.price.replace(/[₹,]/g, "")) || 0;
+          return priceA - priceB;
+        });
         break;
       case "price-high":
-        result.sort((a, b) => b.price - a.price);
+        result.sort((a, b) => {
+          const priceA = parseFloat(a.price.replace(/[₹,]/g, "")) || 0;
+          const priceB = parseFloat(b.price.replace(/[₹,]/g, "")) || 0;
+          return priceB - priceA;
+        });
         break;
       case "newest":
-        result.sort((a, b) => new Date(b.createdAt || "").getTime() - new Date(a.createdAt || "").getTime());
+        result.sort((a, b) => {
+          const dateA = a.isNew ? 1 : 0;
+          const dateB = b.isNew ? 1 : 0;
+          return dateB - dateA;
+        });
         break;
       default:
         // Featured - keep featured items first
         result.sort((a, b) => {
-          if (a.isFeatured && !b.isFeatured) return -1;
-          if (!a.isFeatured && b.isFeatured) return 1;
-          return 0;
+          const featuredA = a.isFeatured || a.featured ? 1 : 0;
+          const featuredB = b.isFeatured || b.featured ? 1 : 0;
+          return featuredB - featuredA;
         });
     }
 
@@ -72,7 +84,7 @@ export const Collection = () => {
 
 I'm interested in: ${product.name}
 Category: ${product.category}
-Price: ₹${product.price.toLocaleString("en-IN")}
+Price: ${product.price}
 
 Please provide more details about this piece.
 

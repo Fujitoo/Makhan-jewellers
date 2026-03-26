@@ -1,24 +1,15 @@
 import { cn } from "@/lib/utils";
-import { Award, Shield, Gem, Heart } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface TrustBadgeProps {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   subtitle: string;
   className?: string;
+  delay?: number;
 }
 
-const iconMap: Record<string, LucideIcon> = {
-  award: Award,
-  shield: Shield,
-  gem: Gem,
-  heart: Heart,
-};
-
-export const TrustBadge = ({ icon, title, subtitle, className }: TrustBadgeProps) => {
-  const IconComponent = iconMap[icon] || Award;
-
+export const TrustBadge = ({ icon: IconComponent, title, subtitle, className }: TrustBadgeProps) => {
   return (
     <div className={cn(
       "flex flex-col items-center text-center p-4",

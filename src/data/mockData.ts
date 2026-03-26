@@ -5,8 +5,11 @@ export interface Product {
   price: string;
   image: string;
   isHallmarked: boolean;
-  isNew: boolean;
+  isNew?: boolean;
+  isFeatured?: boolean;
+  featured?: boolean;
   description?: string;
+  createdAt?: string;
 }
 
 export interface Review {
@@ -27,6 +30,18 @@ export interface TrustBadge {
   title: string;
   subtitle: string;
 }
+
+export const businessInfo = {
+  name: "Makhan Jewellers",
+  phone: "09956484670",
+  whatsapp: "919956484670",
+  address: "Near Halima Hospital, Munshi Pura, Mau, Uttar Pradesh 275101",
+  rating: 5.0,
+  reviewCount: 27,
+  established: 1994,
+  hours: "Mon-Sat: 10:00 AM - 9:00 PM",
+  email: "contact@makhanjewellers.com"
+};
 
 export const products: Product[] = [
   {
