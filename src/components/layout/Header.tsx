@@ -65,49 +65,69 @@ export const Header = () => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full sm:w-[400px] p-0 bg-white">
+          <SheetContent side="right" className="w-full p-0 bg-slate-900 border-none">
             <nav className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b">
-                <span className="font-serif text-lg font-bold bg-gradient-to-r from-gold-600 to-gold-500 bg-clip-text text-transparent">
+              {/* Header with Close Button */}
+              <div className="flex items-center justify-between p-6 border-b border-slate-700">
+                <span className="font-serif text-lg font-bold bg-gradient-to-r from-gold-400 to-gold-500 bg-clip-text text-transparent">
                   {BUSINESS_INFO.name}
                 </span>
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsOpen(false)}
-                  className="hover:bg-gold-50"
+                  className="hover:bg-slate-800 text-gray-300 hover:text-white transition-colors"
                 >
-                  <X className="h-5 w-5 text-slate-700" />
+                  <X className="h-6 w-6" />
                   <span className="sr-only">Close menu</span>
                 </Button>
               </div>
 
-              {/* Navigation Links - Full Screen */}
-              <div className="flex-1 overflow-y-auto py-8">
-                <div className="flex flex-col space-y-2 px-6">
-                  {navLinks.map((link) => (
+              {/* Navigation Links - Full Screen with Blue Background */}
+              <div className="flex-1 overflow-y-auto py-8 px-6">
+                <div className="flex flex-col space-y-3">
+                  {navLinks.map((link, index) => (
                     <Link
                       key={link.href}
                       to={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "text-lg font-medium py-4 px-4 rounded-lg transition-all duration-300 border-l-4",
-                        isActive(link.href)
-                          ? "bg-gold-50 text-gold-600 border-gold-600"
-                          : "text-slate-700 border-transparent hover:bg-gold-50 hover:text-gold-600 hover:border-gold-400"
-                      )}
+                      className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300"
+                      style={{
+                        animation: `slideInRight 0.4s ease-out ${index * 0.1}s both`
+                      }}
                     >
-                      {link.label}
+                      {/* Background gradient on hover */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-gold-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Content */}
+                      <div className="relative flex items-center justify-between">
+                        <span className={cn(
+                          "text-lg font-medium transition-all duration-300",
+                          isActive(link.href)
+                            ? "text-gold-400"
+                            : "text-white group-hover:text-gold-400"
+                        )}>
+                          {link.label}
+                        </span>
+                        {/* Arrow icon on hover */}
+                        <span className="transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+                          <svg className="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </div>
+                      
+                      {/* Bottom border animation */}
+                      <span className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-gold-500 to-gold-400 w-0 group-hover:w-full transition-all duration-500" />
                     </Link>
                   ))}
                 </div>
               </div>
 
               {/* Call Button - Footer */}
-              <div className="p-6 border-t bg-slate-50">
+              <div className="p-6 border-t border-slate-700 bg-slate-800/50">
                 <a href={`tel:${BUSINESS_INFO.phone}`}>
-                  <Button className="w-full bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white shadow-md py-6 text-lg">
+                  <Button className="w-full bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white shadow-lg py-6 text-lg font-semibold transition-all hover:shadow-gold-500/20">
                     <Phone className="mr-2 h-5 w-5" />
                     Call {BUSINESS_INFO.phone}
                   </Button>

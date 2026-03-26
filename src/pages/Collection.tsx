@@ -109,12 +109,21 @@ Thank you!`;
 
   return (
     <Layout>
-      {/* Filter Bar - Compact on Mobile */}
-      <div className="sticky top-16 bg-white border-b border-gray-200 py-3 px-4 z-40">
+      {/* Collection Title - Simple and Clean */}
+      <div className="bg-gradient-to-b from-slate-50 to-white border-b border-gray-100">
+        <div className="container mx-auto px-4 py-6">
+          <h1 className="font-serif text-2xl md:text-3xl font-bold text-slate-900">
+            Our Collection
+          </h1>
+        </div>
+      </div>
+
+      {/* Filter Bar - Integrated with Content */}
+      <div className="bg-white py-3 px-4 border-b border-gray-100">
         <div className="container mx-auto">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             {/* Categories - Horizontal Scroll */}
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
@@ -122,8 +131,8 @@ Thank you!`;
                   className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all flex-shrink-0
                     ${
                       activeCategory === cat
-                        ? "bg-gold-600 text-white shadow-md"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        ? "bg-gold-600 text-white shadow-sm"
+                        : "bg-gray-50 text-gray-600 hover:bg-gray-100"
                     }`}
                 >
                   {cat}
@@ -139,12 +148,12 @@ Thank you!`;
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 min-w-0 h-9 text-sm border-gray-300 bg-white text-slate-900 focus:border-gold-600 focus:ring-gold-600"
+                className="flex-1 min-w-0 h-9 text-sm border-gray-200 bg-gray-50 text-slate-900 focus:border-gold-600 focus:ring-gold-600"
               />
 
               {/* Sort */}
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-28 h-9 border-gray-300 bg-white text-slate-900 focus:ring-gold-600 focus:border-gold-600 text-xs">
+                <SelectTrigger className="w-24 h-9 border-gray-200 bg-gray-50 text-slate-900 focus:ring-gold-600 focus:border-gold-600 text-xs">
                   <SelectValue placeholder="Sort" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-gray-200 shadow-lg z-50">
@@ -162,11 +171,6 @@ Thank you!`;
                   </SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-
-            {/* Product Count - Small */}
-            <div className="text-xs text-gray-500">
-              {filteredProducts.length} products
             </div>
           </div>
         </div>

@@ -16,8 +16,6 @@ export const BUSINESS_INFO = {
 
 export const SOCIAL_LINKS = {
   instagram: "https://instagram.com/makhanjewellers_1994",
-  facebook: "https://facebook.com/makhanjewellers",
-  youtube: "https://youtube.com/@makhanjewellers",
 };
 
 export const BUSINESS_HOURS = [

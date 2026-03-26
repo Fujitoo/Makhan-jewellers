@@ -4,7 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import { BUSINESS_INFO, SOCIAL_LINKS } from "@/lib/constants";
 import { navLinks } from "@/data/mockData";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
-import { FacebookIcon } from "@/components/icons/FacebookIcon";
 
 export const Footer = () => {
   return (
@@ -29,15 +28,6 @@ export const Footer = () => {
                 aria-label="Instagram"
               >
                 <InstagramIcon className="h-6 w-6" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-gold-600 transition-colors"
-                aria-label="Facebook"
-              >
-                <FacebookIcon className="h-6 w-6" />
               </a>
             </div>
           </div>
