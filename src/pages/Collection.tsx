@@ -107,8 +107,8 @@ Thank you!`;
 
   return (
     <Layout>
-      {/* Filter Bar - Sticky below header */}
-      <div className="bg-white py-3 px-4 border-b border-gray-100 sticky top-16 z-40">
+      {/* Filter Bar - NOT sticky, scrolls normally */}
+      <div className="bg-white py-3 px-4 border-b border-gray-100">
         <div className="container mx-auto">
           <div className="flex flex-col gap-3">
             {/* Categories - Horizontal Scroll */}

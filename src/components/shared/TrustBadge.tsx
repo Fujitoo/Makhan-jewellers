@@ -15,11 +15,11 @@ export const TrustBadge = ({ icon: IconComponent, title, subtitle, className }: 
       "flex flex-col items-center text-center p-4",
       className
     )}>
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 text-gold-600 mb-4">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-gold-500 to-gold-600 text-white mb-4 shadow-md">
         <IconComponent className="h-8 w-8" />
       </div>
-      <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
-      <p className="text-sm text-slate-600 font-medium">{subtitle}</p>
+      <h3 className="font-bold text-slate-900 text-base mb-1">{title}</h3>
+      <p className="text-sm text-slate-700 font-semibold">{subtitle}</p>
     </div>
   );
 };

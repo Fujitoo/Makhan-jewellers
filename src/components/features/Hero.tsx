@@ -19,8 +19,8 @@ export function Hero() {
           alt="Luxury gold jewellery"
           className="w-full h-full object-cover"
         />
-        {/* Dark Overlay - Increased opacity for better text readability */}
-        <div className="absolute inset-0 bg-slate-900/80" />
+        {/* Dark Overlay - Extra dark for mobile readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/85 to-slate-900/90" />
       </div>
 
       {/* Content */}
@@ -31,8 +31,8 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Badge */}
-          <motion.p 
-            className="text-gold-600 text-sm uppercase tracking-widest mb-4"
+          <motion.p
+            className="text-gold-400 text-sm md:text-base uppercase tracking-widest mb-4 font-semibold drop-shadow-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -41,8 +41,8 @@ export function Hero() {
           </motion.p>
 
           {/* Headline */}
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif text-white mb-6"
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-serif text-white mb-6 drop-shadow-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -52,7 +52,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-8 drop-shadow-md"
+            className="text-base sm:text-lg md:text-xl text-white font-medium max-w-2xl mx-auto mb-8 drop-shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
