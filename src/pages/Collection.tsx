@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import { Package, Shield, Clock, MessageCircle, MapPin, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -110,40 +109,17 @@ Thank you!`;
 
   return (
     <Layout>
-      {/* Page Header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-8">
-          <nav className="text-sm text-gray-600 mb-2" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-gold-600 transition-colors">
-              Home
-            </Link>
-            <span className="mx-2 text-gray-400" aria-hidden="true">
-              /
-            </span>
-            <span className="text-slate-900 font-medium" aria-current="page">
-              Collection
-            </span>
-          </nav>
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-slate-900">
-            Our Collection
-          </h1>
-          <p className="text-gray-600 mt-2 max-w-2xl">
-            Explore our exquisite range of hallmarked jewellery
-          </p>
-        </div>
-      </div>
-
-      {/* Filter Bar */}
-      <div className="sticky top-16 bg-white border-b border-gray-200 py-4 px-4 z-40">
+      {/* Filter Bar - Compact on Mobile */}
+      <div className="sticky top-16 bg-white border-b border-gray-200 py-3 px-4 z-40">
         <div className="container mx-auto">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {/* Categories - Horizontal Scroll */}
-            <div className="flex gap-2 overflow-x-auto pb-2">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex-shrink-0
+                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all flex-shrink-0
                     ${
                       activeCategory === cat
                         ? "bg-gold-600 text-white shadow-md"
@@ -155,42 +131,42 @@ Thank you!`;
               ))}
             </div>
 
-            {/* Search and Sort - Stack on Mobile */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* Search and Sort - Compact Row */}
+            <div className="flex gap-2">
               {/* Search */}
               <Input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full border-gray-300 bg-white text-slate-900 focus:border-gold-600 focus:ring-gold-600"
+                className="flex-1 min-w-0 h-9 text-sm border-gray-300 bg-white text-slate-900 focus:border-gold-600 focus:ring-gold-600"
               />
 
               {/* Sort */}
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-full sm:w-40 border-gray-300 bg-white text-slate-900 focus:ring-gold-600 focus:border-gold-600">
-                  <SelectValue placeholder="Sort by" />
+                <SelectTrigger className="w-28 h-9 border-gray-300 bg-white text-slate-900 focus:ring-gold-600 focus:border-gold-600 text-xs">
+                  <SelectValue placeholder="Sort" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-gray-200 shadow-lg z-50">
                   <SelectItem value="featured" className="text-slate-900 hover:bg-gold-50">
                     Featured
                   </SelectItem>
                   <SelectItem value="price-low" className="text-slate-900 hover:bg-gold-50">
-                    Price: Low to High
+                    Price ↑
                   </SelectItem>
                   <SelectItem value="price-high" className="text-slate-900 hover:bg-gold-50">
-                    Price: High to Low
+                    Price ↓
                   </SelectItem>
                   <SelectItem value="newest" className="text-slate-900 hover:bg-gold-50">
-                    Newest First
+                    Newest
                   </SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            {/* Product Count */}
-            <div className="text-sm text-gray-600">
-              Showing <span className="font-medium text-slate-900">{filteredProducts.length}</span> products
+            {/* Product Count - Small */}
+            <div className="text-xs text-gray-500">
+              {filteredProducts.length} products
             </div>
           </div>
         </div>

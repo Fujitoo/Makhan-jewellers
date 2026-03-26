@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { BUSINESS_INFO, SOCIAL_LINKS } from "@/lib/constants";
 import { navLinks } from "@/data/mockData";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
+import { FacebookIcon } from "@/components/icons/FacebookIcon";
 
 export const Footer = () => {
   return (
@@ -26,7 +28,7 @@ export const Footer = () => {
                 className="text-gray-300 hover:text-gold-600 transition-colors"
                 aria-label="Instagram"
               >
-                <Globe className="h-5 w-5" />
+                <InstagramIcon className="h-6 w-6" />
               </a>
               <a
                 href={SOCIAL_LINKS.facebook}
@@ -35,7 +37,7 @@ export const Footer = () => {
                 className="text-gray-300 hover:text-gold-600 transition-colors"
                 aria-label="Facebook"
               >
-                <Globe className="h-5 w-5" />
+                <FacebookIcon className="h-6 w-6" />
               </a>
             </div>
           </div>
@@ -48,6 +50,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="text-gray-300 hover:text-gold-600 transition-colors text-sm"
                   >
                     {link.label}

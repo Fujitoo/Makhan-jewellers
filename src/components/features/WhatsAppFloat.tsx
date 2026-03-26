@@ -1,6 +1,5 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS_INFO } from "@/lib/constants";
 import {
@@ -9,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 export const WhatsAppFloat = () => {
   const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsapp}`;
@@ -27,7 +27,7 @@ export const WhatsAppFloat = () => {
               className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-transform hover:scale-110"
               size="icon"
             >
-              <MessageCircle className="h-7 w-7" />
+              <WhatsAppIcon className="h-8 w-8" />
             </Button>
           </a>
         </TooltipTrigger>
