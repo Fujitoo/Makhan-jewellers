@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Package, Shield, Clock, MessageCircle, MapPin, X } from "lucide-react";
+import { Package, Shield, Clock, MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -105,23 +105,22 @@ Thank you!`;
     setSearchQuery("");
   };
 
-  const hasActiveFilters = activeCategory !== "All" || searchQuery !== "" || sortBy !== "featured";
-
   return (
     <Layout>
-      {/* Collection Title - Simple and Clean */}
-      <div className="bg-gradient-to-b from-slate-50 to-white border-b border-gray-100">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="font-serif text-2xl md:text-3xl font-bold text-slate-900">
-            Our Collection
-          </h1>
-        </div>
-      </div>
-
-      {/* Filter Bar - Integrated with Content */}
-      <div className="bg-white py-3 px-4 border-b border-gray-100">
+      {/* Filter Bar with Title - Integrated */}
+      <div className="bg-white py-4 px-4 border-b border-gray-100 sticky top-16 z-40">
         <div className="container mx-auto">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
+            {/* Title Row */}
+            <div className="flex items-center justify-between">
+              <h1 className="font-serif text-xl md:text-2xl font-bold text-slate-900">
+                Our Collection
+              </h1>
+              <span className="text-sm text-slate-500">
+                {filteredProducts.length} products
+              </span>
+            </div>
+
             {/* Categories - Horizontal Scroll */}
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {CATEGORIES.map((cat) => (
@@ -132,7 +131,7 @@ Thank you!`;
                     ${
                       activeCategory === cat
                         ? "bg-gold-600 text-white shadow-sm"
-                        : "bg-gray-50 text-gray-600 hover:bg-gray-100"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                 >
                   {cat}
@@ -175,64 +174,6 @@ Thank you!`;
           </div>
         </div>
       </div>
-
-      {/* Active Filters Tags */}
-      {hasActiveFilters && (
-        <div className="container mx-auto px-4 py-3 bg-white border-b border-gray-200">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-sm font-medium text-gray-700">Active Filters:</span>
-            
-            {activeCategory !== "All" && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gold-50 border border-gold-200 rounded-full text-sm">
-                <span className="text-slate-900 font-medium">Category:</span>
-                <span className="text-gold-700">{activeCategory}</span>
-                <button
-                  onClick={() => setActiveCategory("All")}
-                  className="ml-1 hover:bg-gold-200 rounded-full p-0.5 transition"
-                  aria-label="Remove category filter"
-                >
-                  <X className="w-3.5 h-3.5 text-gold-700" />
-                </button>
-              </div>
-            )}
-
-            {searchQuery && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-full text-sm">
-                <span className="text-slate-900 font-medium">Search:</span>
-                <span className="text-blue-700">{searchQuery}</span>
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="ml-1 hover:bg-blue-200 rounded-full p-0.5 transition"
-                  aria-label="Remove search filter"
-                >
-                  <X className="w-3.5 h-3.5 text-blue-700" />
-                </button>
-              </div>
-            )}
-
-            {sortBy !== "featured" && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 border border-purple-200 rounded-full text-sm">
-                <span className="text-slate-900 font-medium">Sort:</span>
-                <span className="text-purple-700 capitalize">{sortBy.replace("-", " ")}</span>
-                <button
-                  onClick={() => setSortBy("featured")}
-                  className="ml-1 hover:bg-purple-200 rounded-full p-0.5 transition"
-                  aria-label="Remove sort filter"
-                >
-                  <X className="w-3.5 h-3.5 text-purple-700" />
-                </button>
-              </div>
-            )}
-
-            <button
-              onClick={handleClearAll}
-              className="text-sm text-gray-600 hover:text-gold-600 underline transition"
-            >
-              Clear All
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Product Grid */}
       <div className="container mx-auto px-4 py-12">

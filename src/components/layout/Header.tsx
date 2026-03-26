@@ -16,11 +16,11 @@ export const Header = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 supports-[backdrop-filter]:bg-slate-900/95">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo with Golden Glow Effect */}
         <Link to="/" className="flex items-center space-x-2 group">
-          <span className="font-serif text-xl md:text-2xl font-bold bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent drop-shadow-lg group-hover:drop-shadow-[0_0_8px_rgba(197,160,89,0.6)] transition-all duration-300">
+          <span className="font-serif text-xl md:text-2xl font-bold bg-gradient-to-r from-gold-400 via-gold-500 to-gold-400 bg-clip-text text-transparent drop-shadow-lg group-hover:drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] transition-all duration-300">
             {BUSINESS_INFO.name}
           </span>
         </Link>
@@ -33,14 +33,14 @@ export const Header = () => {
               to={link.href}
               className={cn(
                 "text-sm font-medium transition-all duration-300 relative py-2",
-                "hover:text-gold-600",
-                isActive(link.href) ? "text-gold-600" : "text-slate-700"
+                "text-white hover:text-gold-400",
+                isActive(link.href) ? "text-gold-400" : "text-white"
               )}
             >
               {link.label}
               {/* Golden underline animation on hover */}
               <span className={cn(
-                "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-gold-500 to-gold-600 transition-all duration-300",
+                "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-gold-400 to-gold-500 transition-all duration-300",
                 isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
               )} />
             </Link>
@@ -65,7 +65,7 @@ export const Header = () => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full p-0 bg-slate-900 border-none">
+          <SheetContent side="right" className="w-full p-0 bg-slate-900 border-none [&>button]:hidden">
             <nav className="flex flex-col h-full">
               {/* Header with Close Button */}
               <div className="flex items-center justify-between p-6 border-b border-slate-700">
