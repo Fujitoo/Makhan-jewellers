@@ -5,17 +5,17 @@ import { ProductCard } from '@/components/shared/ProductCard';
 import { products } from '@/data/mockData';
 
 export function FeaturedCollection() {
-  const featuredProducts = products.filter(p => p.featured).slice(0, 6);
+  const featuredProducts = products.filter(p => p.featured).slice(0, 2);
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-4xl">
         <SectionHeading
           title="Featured Collection"
           subtitle="Handpicked pieces that define elegance and tradition"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

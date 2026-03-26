@@ -9,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Layout } from "@/components/shared/Layout";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { products, type Product } from "@/data/mockData";
 import { BUSINESS_INFO } from "@/data/constants";
@@ -106,7 +105,7 @@ Thank you!`;
   };
 
   return (
-    <Layout>
+    <div className="min-h-screen bg-white">
       {/* Filter Bar - NOT sticky, scrolls normally */}
       <div className="bg-white py-3 px-4 border-b border-gray-100">
         <div className="container mx-auto">
@@ -248,6 +247,6 @@ Thank you!`;
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };

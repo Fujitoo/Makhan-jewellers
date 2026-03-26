@@ -4,7 +4,6 @@ import { MapAndForm } from '@/components/features/MapAndForm';
 import { BusinessHours } from '@/components/features/BusinessHours';
 import { FAQSection } from '@/components/features/FAQSection';
 import { SocialMediaSection } from '@/components/features/SocialMediaSection';
-import { WhatsAppFloat } from '@/components/shared/WhatsAppFloat';
 
 const Contact = () => {
   return (
@@ -54,9 +53,6 @@ const Contact = () => {
 
       {/* Social Media Section */}
       <SocialMediaSection />
-
-      {/* Floating WhatsApp Button */}
-      <WhatsAppFloat />
     </div>
   );
 };

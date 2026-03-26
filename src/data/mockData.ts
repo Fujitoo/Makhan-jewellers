@@ -52,6 +52,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: true,
+    featured: true,
     description: "Exquisite traditional gold necklace with intricate craftsmanship"
   },
   {
@@ -62,6 +63,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: true,
+    featured: true,
     description: "Elegant bridal choker with traditional motifs"
   },
   {
@@ -72,6 +74,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: false,
+    featured: true,
     description: "Authentic temple jewellery with deity motifs"
   },
   {
@@ -82,6 +85,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: true,
+    featured: true,
     description: "Elegant gold ring with certified diamond"
   },
   {
@@ -92,6 +96,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1603561591411-07134e71a0a9?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: false,
+    featured: true,
     description: "Classic wedding band with traditional patterns"
   },
   {
@@ -102,6 +107,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
     isNew: true,
+    featured: true,
     description: "Set of 4 traditional gold bangles"
   },
   {

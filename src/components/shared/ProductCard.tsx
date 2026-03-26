@@ -26,26 +26,32 @@ export const ProductCard = ({ product, className, onEnquire }: ProductCardProps)
         />
         {product.isHallmarked && (
           <Badge
-            variant="secondary"
-            className="absolute left-2 top-2 bg-white/90 text-foreground backdrop-blur-sm"
+            className="absolute left-2 top-2 bg-slate-900 text-white border-none shadow-md font-bold px-2 py-0.5"
           >
             Hallmarked
           </Badge>
         )}
         {product.isNew && (
           <Badge
-            className="absolute right-2 top-2 bg-gold-600 text-white"
+            className="absolute right-2 top-2 bg-gold-600 text-white border-none shadow-md font-bold px-2 py-0.5"
           >
             New
           </Badge>
         )}
       </div>
       <CardContent className="p-4">
-        <p className="text-sm text-muted-foreground mb-1">{product.category}</p>
-        <h3 className="font-semibold text-foreground line-clamp-1 mb-2">
+        <div className="flex justify-between items-start mb-1">
+          <p className="text-xs font-bold text-gold-600 uppercase tracking-wider">{product.category}</p>
+          <p className="text-sm font-bold text-slate-900">{product.price}</p>
+        </div>
+        <h3 className="font-serif text-lg font-bold text-slate-900 line-clamp-1 mb-2">
           {product.name}
         </h3>
-        <p className="text-lg font-bold text-gold-600">{product.price}</p>
+        {product.description && (
+          <p className="text-sm text-slate-600 line-clamp-2 font-medium leading-relaxed mb-1">
+            {product.description}
+          </p>
+        )}
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button
