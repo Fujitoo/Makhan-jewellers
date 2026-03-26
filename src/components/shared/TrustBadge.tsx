@@ -18,8 +18,8 @@ export const TrustBadge = ({ icon: IconComponent, title, subtitle, className }: 
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 text-gold-600 mb-4">
         <IconComponent className="h-8 w-8" />
       </div>
-      <h3 className="font-semibold text-foreground mb-1">{title}</h3>
-      <p className="text-sm text-muted-foreground">{subtitle}</p>
+      <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
+      <p className="text-sm text-slate-600 font-medium">{subtitle}</p>
     </div>
   );
 };

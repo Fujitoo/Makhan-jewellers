@@ -107,20 +107,10 @@ Thank you!`;
 
   return (
     <Layout>
-      {/* Filter Bar with Title - Integrated */}
-      <div className="bg-white py-4 px-4 border-b border-gray-100 sticky top-16 z-40">
+      {/* Filter Bar - Sticky below header */}
+      <div className="bg-white py-3 px-4 border-b border-gray-100 sticky top-16 z-40">
         <div className="container mx-auto">
           <div className="flex flex-col gap-3">
-            {/* Title Row */}
-            <div className="flex items-center justify-between">
-              <h1 className="font-serif text-xl md:text-2xl font-bold text-slate-900">
-                Our Collection
-              </h1>
-              <span className="text-sm text-slate-500">
-                {filteredProducts.length} products
-              </span>
-            </div>
-
             {/* Categories - Horizontal Scroll */}
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {CATEGORIES.map((cat) => (
@@ -170,6 +160,11 @@ Thank you!`;
                   </SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Product Count */}
+            <div className="text-xs text-slate-500">
+              {filteredProducts.length} products
             </div>
           </div>
         </div>
