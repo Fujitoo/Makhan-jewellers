@@ -19,8 +19,8 @@ export function Hero() {
           alt="Luxury gold jewellery"
           className="w-full h-full object-cover"
         />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-slate-900/70" />
+        {/* Dark Overlay - Increased opacity for better text readability */}
+        <div className="absolute inset-0 bg-slate-900/80" />
       </div>
 
       {/* Content */}
@@ -51,8 +51,8 @@ export function Hero() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8"
+          <motion.p
+            className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-8 drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}

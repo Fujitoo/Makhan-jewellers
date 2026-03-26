@@ -34,14 +34,14 @@ export function TestimonialsSection() {
               </div>
 
               {/* Review Text */}
-              <p className="text-gray-700 italic mt-4 line-clamp-3">
+              <p className="text-slate-700 italic mt-4 line-clamp-3 font-medium">
                 "{review.text}"
               </p>
 
               {/* Author */}
               <div className="mt-4">
                 <p className="font-semibold text-slate-900">{review.user}</p>
-                <span className="inline-block mt-2 bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
+                <span className="inline-block mt-2 bg-gold-50 text-gold-700 text-xs px-2 py-1 rounded font-medium">
                   Verified Google Review
                 </span>
               </div>
@@ -68,7 +68,7 @@ export function TestimonialsSection() {
             </div>
             <div className="text-left">
               <p className="font-semibold text-slate-900">{businessInfo.rating} ★</p>
-              <p className="text-xs text-gray-600">({businessInfo.reviewCount} Reviews)</p>
+              <p className="text-xs text-slate-600 font-medium">({businessInfo.reviewCount} Reviews)</p>
             </div>
           </a>
         </motion.div>

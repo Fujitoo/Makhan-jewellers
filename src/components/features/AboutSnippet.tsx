@@ -41,14 +41,14 @@ export function AboutSnippet() {
               A Legacy of Trust in Munshipura
             </h2>
             
-            <div className="space-y-4 text-gray-600 leading-relaxed">
-              <p>
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p className="font-medium">
                 For over 30 years, Makhan Jewellers has been serving the people of Mau with pure, hallmarked jewellery.
               </p>
-              <p>
+              <p className="font-medium">
                 Located near Halima Hospital in Munshi Pura, we specialize in traditional and contemporary designs for weddings, festivals, and special occasions.
               </p>
-              <p>
+              <p className="font-medium">
                 Every piece is BIS HUID certified, ensuring 100% purity and your complete trust.
               </p>
             </div>
@@ -57,15 +57,15 @@ export function AboutSnippet() {
             <div className="flex flex-wrap gap-8 mt-8">
               <div>
                 <p className="text-2xl font-bold text-gold-600">30+</p>
-                <p className="text-sm text-gray-600">Years</p>
+                <p className="text-sm text-slate-600 font-medium">Years</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-gold-600">5000+</p>
-                <p className="text-sm text-gray-600">Happy Customers</p>
+                <p className="text-sm text-slate-600 font-medium">Happy Customers</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-gold-600">100%</p>
-                <p className="text-sm text-gray-600">Hallmarked</p>
+                <p className="text-sm text-slate-600 font-medium">Hallmarked</p>
               </div>
             </div>
 
