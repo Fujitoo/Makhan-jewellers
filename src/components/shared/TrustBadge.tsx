@@ -1,27 +1,34 @@
-import { motion } from 'framer-motion';
-import type { LucideIcon } from 'lucide-react';
+import { cn } from "@/lib/utils";
+import { Award, Shield, Gem, Heart } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface TrustBadgeProps {
-  icon: LucideIcon;
+  icon: string;
   title: string;
   subtitle: string;
-  delay?: number;
+  className?: string;
 }
 
-export function TrustBadge({ icon: Icon, title, subtitle, delay = 0 }: TrustBadgeProps) {
+const iconMap: Record<string, LucideIcon> = {
+  award: Award,
+  shield: Shield,
+  gem: Gem,
+  heart: Heart,
+};
+
+export const TrustBadge = ({ icon, title, subtitle, className }: TrustBadgeProps) => {
+  const IconComponent = iconMap[icon] || Award;
+
   return (
-    <motion.div
-      className="flex flex-col items-center text-center p-4"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-    >
-      <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gold-50 mb-3">
-        <Icon className="w-6 h-6 text-gold-600" />
+    <div className={cn(
+      "flex flex-col items-center text-center p-4",
+      className
+    )}>
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-100 text-gold-600 mb-4">
+        <IconComponent className="h-8 w-8" />
       </div>
-      <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
-      <p className="text-sm text-gray-600">{subtitle}</p>
-    </motion.div>
+      <h3 className="font-semibold text-foreground mb-1">{title}</h3>
+      <p className="text-sm text-muted-foreground">{subtitle}</p>
+    </div>
   );
-}
+};

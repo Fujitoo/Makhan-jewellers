@@ -1,136 +1,206 @@
-export const businessInfo = {
-  name: "Makhan Jewellers",
-  phone: "09956484670",
-  whatsapp: "919956484670",
-  address: "Near Halima Hospital, Munshi Pura, Mau, Uttar Pradesh 275101",
-  rating: 5.0,
-  reviewCount: 27,
-  established: 1994,
-  hours: "Mon-Sat: 10:00 AM - 9:00 PM",
-  email: "contact@makhanjewellers.com"
-};
+export interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: string;
+  image: string;
+  isHallmarked: boolean;
+  isNew: boolean;
+  description?: string;
+}
 
-export const products = [
+export interface Review {
+  id: number;
+  user: string;
+  rating: number;
+  text: string;
+  date: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface TrustBadge {
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+export const products: Product[] = [
   {
     id: 1,
-    name: "Antique Gold Necklace Set",
+    name: "Traditional Gold Necklace",
     category: "Necklaces",
-    price: "₹1,25,000",
-    image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?w=600&h=600&fit=crop",
+    price: "₹1,50,000",
+    image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Traditional bridal necklace with intricate craftsmanship"
+    isNew: true,
+    description: "Exquisite traditional gold necklace with intricate craftsmanship"
   },
   {
     id: 2,
-    name: "Diamond Solitaire Ring",
-    category: "Rings",
-    price: "₹85,000",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop",
+    name: "Bridal Gold Choker",
+    category: "Necklaces",
+    price: "₹2,25,000",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Elegant 18K gold ring with certified diamond"
+    isNew: true,
+    description: "Elegant bridal choker with traditional motifs"
   },
   {
     id: 3,
-    name: "Temple Gold Bangles",
-    category: "Bracelets",
-    price: "₹2,10,000",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+    name: "Temple Jewellery Necklace",
+    category: "Necklaces",
+    price: "₹3,10,000",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Traditional temple design bangles in 22K gold"
+    isNew: false,
+    description: "Authentic temple jewellery with deity motifs"
   },
   {
     id: 4,
-    name: "Kundan Earrings",
-    category: "Earrings",
-    price: "₹45,000",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
+    name: "Gold Diamond Ring",
+    category: "Rings",
+    price: "₹85,000",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Handcrafted kundan earrings with pearl drops"
+    isNew: true,
+    description: "Elegant gold ring with certified diamond"
   },
   {
     id: 5,
-    name: "Gold Chain Mens",
-    category: "Chains",
-    price: "₹1,80,000",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+    name: "Traditional Wedding Ring",
+    category: "Rings",
+    price: "₹45,000",
+    image: "https://images.unsplash.com/photo-1603561591411-07134e71a0a9?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Premium 22K gold chain for men"
+    isNew: false,
+    description: "Classic wedding band with traditional patterns"
   },
   {
     id: 6,
-    name: "Bridal Choker Set",
-    category: "Necklaces",
-    price: "₹3,50,000",
-    image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?w=600&h=600&fit=crop",
+    name: "Gold Bangles Set",
+    category: "Bracelets",
+    price: "₹1,80,000",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: true,
-    description: "Complete bridal choker with matching earrings"
+    isNew: true,
+    description: "Set of 4 traditional gold bangles"
   },
   {
     id: 7,
-    name: "Pearl Drop Earrings",
-    category: "Earrings",
-    price: "₹32,000",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
+    name: "Kada Bracelet",
+    category: "Bracelets",
+    price: "₹95,000",
+    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: false,
-    description: "Elegant pearl earrings with gold accents"
+    isNew: false,
+    description: "Elegant gold kada with modern design"
   },
   {
     id: 8,
-    name: "Gold Pendant with Chain",
-    category: "Pendants",
+    name: "Jhumka Earrings",
+    category: "Earrings",
     price: "₹65,000",
-    image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?w=600&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800",
     isHallmarked: true,
-    featured: false,
-    description: "Delicate pendant with 18K gold chain"
+    isNew: true,
+    description: "Traditional jhumka earrings with intricate work"
+  },
+  {
+    id: 9,
+    name: "Gold Stud Earrings",
+    category: "Earrings",
+    price: "₹35,000",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800",
+    isHallmarked: true,
+    isNew: false,
+    description: "Elegant diamond stud earrings in gold setting"
+  },
+  {
+    id: 10,
+    name: "Mangalsutra",
+    category: "Necklaces",
+    price: "₹1,15,000",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
+    isHallmarked: true,
+    isNew: true,
+    description: "Traditional mangalsutra with black beads and gold pendant"
+  },
+  {
+    id: 11,
+    name: "Gold Chain",
+    category: "Chains",
+    price: "₹75,000",
+    image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
+    isHallmarked: true,
+    isNew: false,
+    description: "Classic gold chain with durable links"
+  },
+  {
+    id: 12,
+    name: "Antique Gold Pendant",
+    category: "Pendants",
+    price: "₹55,000",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=800",
+    isHallmarked: true,
+    isNew: true,
+    description: "Antique finish pendant with traditional design"
   }
 ];
 
-export const reviews = [
+export const reviews: Review[] = [
   {
     id: 1,
     user: "Rahul Singh",
     rating: 5,
-    text: "Best jewellery shop in Mau. Pure gold and great designs. The staff is very helpful and the prices are reasonable. Highly recommended!",
-    date: "2 months ago",
-    verified: true
+    text: "Best jewellery shop in Mau. Pure gold and great designs. The staff is very knowledgeable and helped me choose the perfect wedding jewellery.",
+    date: "2 weeks ago"
   },
   {
     id: 2,
     user: "Priya Gupta",
     rating: 5,
-    text: "Bought my wedding jewellery from here. The collection is amazing and everything is hallmarked. Excellent customer service!",
-    date: "3 months ago",
-    verified: true
+    text: "Excellent quality and craftsmanship. I bought a bridal set for my daughter's wedding and it was absolutely stunning. Highly recommended!",
+    date: "1 month ago"
   },
   {
     id: 3,
     user: "Amit Verma",
     rating: 5,
-    text: "Trustworthy shop with genuine products. Been coming here for 15 years. The custom designs are beautiful and delivery is always on time.",
-    date: "1 month ago",
-    verified: true
-  },
-  {
-    id: 4,
-    user: "Sneha Mishra",
-    rating: 5,
-    text: "Love their traditional collection! The staff helped me choose the perfect necklace for my engagement. Will definitely visit again.",
-    date: "2 weeks ago",
-    verified: true
+    text: "Trustworthy jeweller with fair pricing. The hallmarked gold gives peace of mind. Been a customer for over 10 years.",
+    date: "3 weeks ago"
   }
 ];
 
-export const navLinks = [
+export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Collection", href: "/collection" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact", href: "/contact" },
+];
+
+export const trustBadges: TrustBadge[] = [
+  {
+    icon: "award",
+    title: "Hallmarked Gold",
+    subtitle: "100% Pure & Certified"
+  },
+  {
+    icon: "shield",
+    title: "Trusted Since 1994",
+    subtitle: "30+ Years of Excellence"
+  },
+  {
+    icon: "gem",
+    title: "Premium Quality",
+    subtitle: "Finest Craftsmanship"
+  },
+  {
+    icon: "heart",
+    title: "Customer First",
+    subtitle: "Lifetime Trust"
+  }
 ];
